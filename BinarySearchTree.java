@@ -10,9 +10,13 @@ public class BinarySearchTree<K extends Comparable<K>> {
 	public void add(K key) {
 		this.root = this.addRecursively(this.root , key);
 	}
-	
+	public void addTreeElements(K elements[]) {
+		for(K key: elements) {
+			this.add(key);
+		}
+	}
 	public BSTNode<K> addRecursively(BSTNode<K> current , K key) {
-		if(current==null) 
+		if(current == null) 
 			return new BSTNode<K>(key);
 		int result = key.compareTo(current.key);
 		if(result == 0)
@@ -34,10 +38,8 @@ public class BinarySearchTree<K extends Comparable<K>> {
 	
 	public static void main(String[] args) {
 		BinarySearchTree<Integer> treeObj=new BinarySearchTree<Integer>();
-		Integer a=56, b=30, c=70;
-		treeObj.add(a);
-		treeObj.add(b);
-		treeObj.add(c);
+		Integer elements[] = {56,30,70,22,40,60,95,11,65,3,63,67};
+		treeObj.addTreeElements(elements);
 		System.out.println("Binary tree of size "+ treeObj.getSize()+" created.");
 	}
 }
