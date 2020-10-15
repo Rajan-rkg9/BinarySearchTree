@@ -1,6 +1,7 @@
 package com.DataStructure.BinarySearchTree;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -20,9 +21,19 @@ public class TestBinarySearchTree {
 	@Test
 	public void givenMultipleNumbersWhenAddedToBInaryTreeShouldHaveSizeEqualToNumberOfNumbers() {
 		BinarySearchTree<Integer> treeObj=new BinarySearchTree<Integer>();
-		Integer[] elements={56,30,70,22,40,60,95,11,65,3,63,67};
+		Integer elements[]={56,30,70,22,40,60,95,11,65,3,63,67};
 		treeObj.addTreeElements(elements);
 		int size = treeObj.getSize();
 		assertEquals(elements.length, size);
+	}
+	
+	@Test
+	public void givenMultipleNumbersWhenAddedToBInaryTreeAndANumberSearchedWhenPresentShouldReturnTrue() {
+		BinarySearchTree<Integer> treeObj=new BinarySearchTree<Integer>();
+		Integer elements[] = {56,30,70,22,40,60,95,11,65,3,63,67};
+		treeObj.addTreeElements(elements);
+		Integer searchElement=63;
+		boolean result = treeObj.search(searchElement);
+		assertTrue(result);
 	}
 }
